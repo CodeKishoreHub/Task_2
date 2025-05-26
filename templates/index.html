@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Auditor</title>
+    <style>
+        /* Reset and basics */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #2980b9;
+            box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+        }
+
+        button {
+            width: 100%;
+            background-color: #2980b9;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1f618d;
+        }
+
+        /* Enhanced results styling */
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            text-align: left;
+        }
+
+        pre {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            max-height: 500px;
+            overflow-y: auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Network Auditor Tool</h1>
+        <form method="POST">
+            <label for="target">Enter Domain or IP:</label>
+            <input type="text" name="target" required />
+            <button type="submit">Scan</button>
+            {% if results %}
+            <h2>🔎 Scan Results:</h2>
+            <pre>{{ results }}</pre>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
